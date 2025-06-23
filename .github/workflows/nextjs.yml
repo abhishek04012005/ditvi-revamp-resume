@@ -1,0 +1,55 @@
+
+name: Deploy to Production
+
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+
+env:
+  NEXT_PUBLIC_SITE_NAME: ${{ secrets.NEXT_PUBLIC_SITE_NAME }}
+  NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+  NEXT_PUBLIC_GOOGLE_VERIFICATION: ${{ secrets.NEXT_PUBLIC_GOOGLE_VERIFICATION }}
+  NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+
+      - name: Install dependencies
+        run: npm ci
+
+
+      - name: Build project
+        run: npm run build
+
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: .next
+          clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name: Update deployment status
+        run: |
+          echo "Deployment completed successfully"
+          echo "Site URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}"
