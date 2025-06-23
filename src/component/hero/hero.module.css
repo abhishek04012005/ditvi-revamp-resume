@@ -1,0 +1,257 @@
+.heroInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+  z-index: 1;
+}
+
+.heroLeft {
+  flex: 1;
+}
+
+.heroLeftText {
+  max-width: 600px;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gradient-1);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  animation: badgeFloat 3s ease-in-out infinite;
+}
+
+.badgeIcon {
+  font-size: 1.2rem;
+}
+
+.heroLeftTextHeading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  animation: slideUp 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+  color: var(--text-secondary);
+}
+
+.heroLeftTextSubheading {
+  font-size: clamp(1.5rem, 3vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.highlight {
+  color: var(--primary-color);
+}
+
+.gradientText {
+  background: var(--gradient-2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  animation: slideUp 0.6s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.heroRight {
+  flex: 1;
+}
+.heroButton {
+    width: 100%;
+}
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  animation: fadeIn 0.6s ease-out 1.2s forwards;
+  opacity: 0;
+}
+
+.heroCarousel {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.carouselSlide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.carouselImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.floatingCard {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  animation: float 3s ease-in-out infinite;
+  z-index: 2;
+  color: var(--text-secondary);
+}
+
+.card1 {
+  top: 10%;
+  left: -10%;
+}
+.card2 {
+  top: 30%;
+  right: -10%;
+}
+.card3 {
+  bottom: 30%;
+  left: -10%;
+}
+.card4 {
+  bottom: 10%;
+  right: -10%;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+  animation: fadeIn 0.6s ease-out 0.9s forwards;
+  opacity: 0;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.statLabel {
+  color: #333;
+  font-size: 1rem;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes btnShine {
+  100% {
+    left: 200%;
+  }
+}
+
+@keyframes badgeFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroInner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroLeft {
+    display: flex;
+    justify-content: center;
+  }
+
+  .heroStats {
+    justify-content: center;
+  }
+
+  .floatingCard {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroCarousel {
+    max-width: 350px;
+  }
+  .heroInner {
+    margin-top: 5rem;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroStats {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+}

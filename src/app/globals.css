@@ -1,0 +1,71 @@
+:root {
+  --primary-color-a: 0, 98, 255; /* #0062FF: Bold, confident blue */
+  --secondary-color-a: 30, 41, 59; /* #1E293B: Corporate dark blue */
+  --accent-a: 14, 165, 233; /* #0EA5E9: Vibrant sky blue */
+  --text-primary-a: 15, 23, 42; /* #0F172A: Clear readable black */
+  --text-secondary-a: 71, 85, 105; /* #475569: Subtle gray */
+  --background-a: 248, 250, 252; /* #F8FAFC: Soft white */
+
+  --primary-color: #0062ff; /* Bright Blue: Modern, trustworthy, stands out */
+  --secondary-color: #1a237e; /* Slate-800: Professional, corporate */
+  --accent: #0ea5e9; /* Sky-500: Fresh, engaging accent */
+  --text-primary: #0f172a; /* Slate-900: Clear, readable main text */
+  --text-secondary: #475569; /* Slate-600: Subtle secondary text */
+  --background: #f8fafc; /* Slate-50: Soft, clean background */
+
+  --navbar-height: 70px;
+  --transition-speed: 0.3s;
+  --container-width: 1280px;
+  --text: #2d2d2d;
+  --gradient-1: linear-gradient(135deg, #0062ff 0%, #60a5fa 100%);
+
+  /* Deeper gradient for emphasis */
+  --gradient-2: linear-gradient(135deg, #0062ff 0%, #0046b5 100%);
+
+  /* Softer modern gradient */
+  --gradient-3: linear-gradient(135deg, #60a5fa 0%, #0062ff 100%);
+
+  --card-bg: #ffffff;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --background: #0a0a0a; */
+    --foreground: #ffffff;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

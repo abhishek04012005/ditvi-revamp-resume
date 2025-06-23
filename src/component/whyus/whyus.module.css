@@ -1,0 +1,125 @@
+
+.whyusGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.whyusCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.6s ease forwards;
+  animation-delay: var(--animation-delay);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.whyusCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(var(--primary-color-a), 0.1);
+}
+
+.cardIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cardIcon span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.whyusCard:hover .cardIcon span {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.whyusCard h3 {
+  font-family: var(--decorative-font);
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.whyusCard p {
+  font-family: var(--body-font);
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--hover-bg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.whyusCard:hover .cardOverlay {
+  opacity: 1;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@media (max-width: 992px) {
+  .whyus {
+    padding: 0rem 0;
+  }
+
+  .whyusGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .whyusSubtitle {
+    font-size: 1rem;
+  }
+
+  .whyusCard {
+    padding: 1.5rem;
+  }
+
+  .animatedCircle {
+    display: none;
+  }
+}

@@ -1,0 +1,91 @@
+.background {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(var(--primary-color-a), 0.05), #fff 100%);
+  padding-block: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.animatedCircle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  opacity: 0.05;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.circle1 {
+  width: 500px;
+  height: 500px;
+  top: -200px;
+  left: -200px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.circle2 {
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  right: -100px;
+  animation: float 8s ease-in-out infinite -4s;
+}
+
+.circle3 {
+  width: 600px;
+  height: 600px;
+  top: -300px;
+  right: -300px;
+  animation: float 8s ease-in-out infinite -2s;
+}
+
+
+@media (max-width: 768px) {
+    .background {
+        padding-block: 3rem;
+    }
+  .animatedCircle {
+    width: 300px;
+    height: 300px;
+  }
+  .circle1 {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    left: -150px;
+  }
+  .circle2 {
+    width: 300px;
+    height: 300px;
+    bottom: -50px;
+    right: -50px;
+  }
+  .circle3 {
+    width: 500px;
+    height: 500px;
+    top: -200px;
+    right: -200px;
+  }
+}
