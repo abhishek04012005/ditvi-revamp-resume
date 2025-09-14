@@ -6,6 +6,16 @@ export const metadata: Metadata = {
   description: "View resume details and options",
 };
 
+// Add this function to generate static parameters
+export async function generateStaticParams() {
+  // Replace these with your actual resume model names
+  const modelNames = ['template1', 'template2', 'template3'];
+  
+  return modelNames.map((name) => ({
+    modelName: name,
+  }));
+}
+
 export default function ResumePage() {
   return <ResumeDetail />;
 }

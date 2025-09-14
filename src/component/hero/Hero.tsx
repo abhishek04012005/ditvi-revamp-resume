@@ -99,10 +99,10 @@ const Hero: React.FC = () => {
 
               <h1 className={styles.heroLeftTextHeading}>
                 <span className={styles.highlight}>GET YOUR CUSTOMIZED</span>{" "}
-                TRADITIONAL
-                <span className={styles.gradientText}> RESUME</span> FROM
-                EXPERTS.
+                RESUME
+                <span className={styles.gradientText}> DESIGNED</span> BY EXPERTS.
               </h1>
+
 
               <h2 className={styles.heroLeftTextSubheading}>
                 YOUR SATISFACTION COMES FIRST, PAY US ONLY WHEN YOU&apos;RE
