@@ -1,0 +1,383 @@
+/* components/structure/resumedetail/resumedetail.module.css */
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes btnShine {
+    100% { left: 200%; }
+}
+
+/* Main Layout */
+.inner {
+    position: relative;
+    padding-top: 0;
+    z-index: 1;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    color: var(--primary-color);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    animation: slideUp 0.6s ease-out;
+}
+
+/* Main Content Grid */
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: rgb(255, 255, 255);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Section */
+.imageWrapper {
+    position: relative;
+}
+
+.image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.image.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.image:hover img {
+    transform: scale(1.05);
+}
+
+/* Tags */
+.tags {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.premium,
+.discount {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.premium {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.discount {
+    background: white;
+    color: var(--primary-color);
+}
+
+/* Rating */
+.rating {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.star {
+    color: #FFD700;
+    font-size: 1.2rem;
+}
+
+.reviews {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Info Section */
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(255, 135, 15, 0.02);
+    border-radius: 15px;
+}
+
+.model h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+/* Price Section */
+.price {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.priceOriginal,
+.priceFinal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.priceLabel {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.priceOriginal .priceValue {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.priceFinal .priceValue {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* CTA Button */
+.cta {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(255, 135, 15, 0.2);
+}
+
+.btnShine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: btnShine 3s linear infinite;
+}
+
+/* Description Section */
+.description {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.descriptionHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.descriptionText {
+    color: var(--text-primary);
+    line-height: 1.8;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Options Section */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    background: rgba(var(--primary-color-a), 0.03);
+    border-radius: 15px;
+    margin: 1.5rem 0;
+}
+
+.optionsGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.getNowButton {
+    width: 100%;
+}
+
+.optionsTitle {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.variantOption {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    user-select: none;
+}
+
+.variantOption:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 135, 15, 0.1);
+}
+
+.variantOption.active {
+    border-color: var(--primary-color);
+    background: rgba(255, 135, 15, 0.05);
+    animation: selectPulse 0.3s ease;
+}
+
+.variantOption input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.variantLabel {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.variantOption:hover .variantLabel {
+    color: var(--primary-color);
+}
+
+.variantOption.active .variantLabel {
+    color: var(--primary-color);
+}
+
+/* Animation for active state */
+@keyframes selectPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .info {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .inner {
+        padding: 6rem 1rem 2rem;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .content {
+        padding: 0.5rem;
+    }
+
+    .description {
+        padding: 0.5rem;
+    }
+
+    .descriptionText {
+        font-size: 0.9rem;
+    }
+
+    .radioGroup {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .options {
+        display: flex;
+    }
+
+    .variantOption {
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        width: 30%;
+    }
+}

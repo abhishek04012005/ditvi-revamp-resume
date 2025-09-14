@@ -3,9 +3,9 @@
 import React from "react";
 import Slider from "react-slick";
 import "../../styles/slick-carousel.css";
-import Carousel1 from "../../assets/carousel/biodata-1114.png";
-import Carousel2 from "../../assets/carousel/biodata-1115.png";
-import Carousel3 from "../../assets/carousel/biodata-1116.png";
+import Carousel1 from "../../assets/biodata/resume-1111.png";
+import Carousel2 from "../../assets/biodata/resume-1112.png";
+import Carousel3 from "../../assets/biodata/resume-1113.png";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import Image from "next/image";

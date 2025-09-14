@@ -1,0 +1,25 @@
+!SESSION 2025-06-24 21:27:10.770 -----------------------------------------------
+eclipse.buildId=4.36.0.20250605-1300
+java.version=21.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product -data /home/abhishek002/work/Ditvi /Ditvi Resume/ditvi-revamp-resume
+
+!ENTRY ch.qos.logback.classic 1 0 2025-06-24 21:27:13.363
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-06-24 21:27:15.324
+!MESSAGE Logback config file: /home/abhishek002/work/Ditvi /Ditvi Resume/ditvi-revamp-resume/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.100.20250418-1315.xml
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-06-24 21:27:27.155
+!MESSAGE [Info] Starting language server with binary lsp agent.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-06-24 21:27:27.210
+!MESSAGE [Info] Lsp agent started successfully.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-06-24 21:27:28.391
+!MESSAGE [Info]	[lsp] GitHub Copilot Language Server 1.335.0 initialized
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-06-24 21:27:29.403
+!MESSAGE [Info]	[certificates] Removed 3 expired certificates

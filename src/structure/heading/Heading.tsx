@@ -11,11 +11,9 @@ const Heading: React.FC<HeaderSectionProps> = ({ title, subtitle }) => {
     <div className={styles.headerBody}>
       <div className={styles.headingSection}>
         <span className={styles.headerSectionDesignElement}></span>
-
         <div className={styles.headingSectionText}>
           <p>{title}</p>
         </div>
-
         <span className={styles.headerSectionDesignElement}></span>
       </div>
       <div className={styles.headerSectionSubtitle}>
