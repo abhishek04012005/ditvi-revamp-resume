@@ -2,29 +2,29 @@ import ChooseOption from '../../structure/chooseoption/ChooseOption';
 import { UserDetails, ModelDetails } from '../../structure/chooseoption/ChooseOption';
 
 interface PageProps {
-  searchParams: {
-    requestNumber?: string;
-    userDetails?: string;
-    modelDetails?: string;
-  };
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default function ChooseOptionPage({ searchParams }: PageProps) {
+export default async function ChooseOptionPage({ searchParams }: PageProps) {
   let userDetails: UserDetails = { name: '' };
   let modelDetails: ModelDetails = { type: 'standard' };
+  let params: { userDetails?: string; modelDetails?: string; requestNumber?: string } = {};
 
   try {
-    if (searchParams.userDetails) {
-      userDetails = JSON.parse(searchParams.userDetails) as UserDetails;
-    }
-    if (searchParams.modelDetails) {
-      modelDetails = JSON.parse(searchParams.modelDetails) as ModelDetails;
+    if (searchParams) {
+      params = await searchParams;
+      if (typeof params.userDetails === 'string') {
+        userDetails = JSON.parse(params.userDetails) as UserDetails;
+      }
+      if (typeof params.modelDetails === 'string') {
+        modelDetails = JSON.parse(params.modelDetails) as ModelDetails;
+      }
     }
   } catch (error) {
     console.error('Error parsing URL parameters:', error);
   }
 
-  const requestNumber = searchParams.requestNumber || '';
+  const requestNumber = (params.requestNumber as string) || '';
 
   return (
     <ChooseOption
@@ -35,5 +35,5 @@ export default function ChooseOptionPage({ searchParams }: PageProps) {
   );
 }
 
-// Add this to enable static generation
-export const dynamic = 'force-static';
+// Since we're using async/await, we need to make this page dynamic
+export const dynamic = 'force-dynamic';
