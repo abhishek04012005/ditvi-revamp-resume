@@ -1,0 +1,264 @@
+/* uploadresume.module.css */
+
+.uploadFiles {
+  margin-top: 4rem;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #fff5f2 0%, #fff 100%);
+}
+
+.uploadFilesContent {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Steps Progress */
+.stepsProgress {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.stepsProgress::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff870f, transparent);
+  z-index: 1;
+}
+
+.step {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.stepNumber {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-weight: bold;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.step.active .stepNumber {
+  border-color: #ff870f;
+  color: #ff870f;
+  box-shadow: 0 0 0 5px rgba(255, 135, 15, 0.1);
+}
+
+.step.completed .stepNumber {
+  background: #ff870f;
+  border-color: #ff870f;
+  color: white;
+}
+
+.stepContent h4 {
+  margin: 0 0 0.5rem;
+  color: #333333;
+}
+
+.stepContent p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+/* Upload Sections */
+.uploadSection {
+  margin-bottom: 2rem;
+}
+
+.uploadBox {
+  background: white;
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Review Section */
+.reviewSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.reviewItem {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.reviewImage {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+/* Navigation Buttons */
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back {
+  background: white;
+  color: #333333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.next {
+  margin-left: auto;
+}
+
+.next,
+.submit {
+  background: linear-gradient(135deg, #ff870f, #ff6b35);
+  color: white;
+}
+
+.uploadPhotoBtn {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #ff870f, #ff6b35);
+  color: white;
+}
+
+.previewSectionUploadBiodata {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.previewContainer {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.imagePreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.successIconChangeImage {
+  color: white;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.changeImageBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff870f;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(157, 13, 0, 0.2);
+}
+
+.errorMessage {
+  background: #ffebee;
+  color: #c62828;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .uploadFilesContent {
+    max-width: 90%;
+  }
+  
+  .stepsProgress {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .uploadFiles {
+    margin-top: 4rem;
+  }
+
+  .stepsProgress {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .navigationButtons {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+
+  .navButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Add more media queries as needed */

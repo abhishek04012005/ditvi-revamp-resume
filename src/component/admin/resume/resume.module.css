@@ -1,0 +1,180 @@
+/* BiodataDashboard.module.css */
+.adminDashboard {
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.dashboardContent {
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.dashboardStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.dashboardStatCard {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dashboardStatInfo h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.dashboardStatInfo p {
+  margin: 5px 0 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.dashboardTableSection {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboardTableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboardSearchBar {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 8px 16px;
+  border-radius: 20px;
+  gap: 10px;
+}
+
+.dashboardSearchBar input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 14px;
+  width: 200px;
+}
+
+.dashboardTableContainer {
+  overflow-x: auto;
+}
+
+.dashboardTable {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.dashboardTable th,
+.dashboardTable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.dashboardTable th {
+  background: #f9f9f9;
+  font-weight: 600;
+  color: #666;
+}
+
+.dashboardStatusActions {
+  display: flex;
+  gap: 8px;
+}
+
+.dashboardActionBtn {
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #e0e0e0;
+  transition: background-color 0.2s;
+}
+
+.dashboardActionBtn:hover {
+  background: #d0d0d0;
+}
+
+.dashboardActionBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.backward {
+  background: #ffebee;
+  color: #f44336;
+}
+
+.forward {
+  background: #e8f5e9;
+  color: #4caf50;
+}
+
+.dashboardViewBtn {
+  padding: 6px 12px;
+  background: #2196f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.dashboardDeleteBtn {
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #ffebee;
+  color: #f44336;
+}
+
+.dashboardDeleteBtn:hover {
+  background: #ffcdd2;
+}
+
+@media (max-width: 768px) {
+  .dashboardStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboardTableContainer {
+    margin: 0 -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboardStats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboardTableHeader {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .dashboardSearchBar {
+    width: 100%;
+  }
+
+  .dashboardSearchBar input {
+    width: 100%;
+  }
+}

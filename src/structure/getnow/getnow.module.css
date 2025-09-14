@@ -1,0 +1,137 @@
+/* src/components/GetNow/getnow.module.css */
+.getnowOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.getnowContent {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.getnowCloseButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666666;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.getnowCloseButton:hover {
+  color: #333333;
+}
+
+.getnowHeader {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.getnowHeader h2 {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.getnowHeader p {
+  color: #666666;
+  font-size: 1rem;
+}
+
+.getnowFormGroup {
+  margin-bottom: 1.25rem;
+}
+
+.getnowFormGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333333;
+  font-weight: 500;
+}
+
+.getnowFormGroup input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  background-color: #f9fafb;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  color: #333333;
+}
+
+.getnowFormGroup input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.getnowFormGroup input:invalid {
+  border-color: var(--primary-color);
+}
+
+.getnowFormGroup input::placeholder {
+  color: #94a3b8;
+}
+
+.getnowSubmitButton {
+  width: 100%;
+}
+
+.getnowSubmitButton:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 640px) {
+  .getnowContent {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .getnowHeader h2 {
+    font-size: 1.25rem;
+  }
+
+  .getnowHeader p {
+    font-size: 0.875rem;
+  }
+
+  .getnowFormGroup input {
+    padding: 0.625rem;
+  }
+
+  .getnowSubmitButton {
+    padding: 0.625rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .getnowCloseButton,
+  .getnowFormGroup input,
+  .getnowSubmitButton {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .getnowFormGroup input,
+  .getnowSubmitButton {
+    border: 2px solid ButtonText;
+  }
+}

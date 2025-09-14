@@ -18,6 +18,7 @@ import styles from "./resume.module.css";
 import Heading from "../heading/Heading";
 import Button from "../button/Button";
 import Background from "../background/Background";
+import GetNow from "../getnow/GetNow";
 
 interface ArrowProps {
   className?: string;
@@ -52,6 +53,7 @@ interface ResumeCardProps {
   subtitle: string;
   isSlider?: boolean;
   showButton?: boolean;
+  biodataDetails?: ResumeType[];
 }
 
 const NextArrow: React.FC<ArrowProps> = ({ className, onClick }) => (
@@ -152,10 +154,11 @@ const ResumeCard: React.FC<ResumeCardProps> = ({
   subtitle,
   isSlider = true,
   showButton,
+  biodataDetails = [],
 }) => {
   const router = useRouter();
-  const [, setIsPopupOpen] = useState<boolean>(false);
-  const [, setSelectedModel] = useState<string>("");
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+  const [selectedModel, setSelectedModel] = useState<string>("");
   const [hoveredCard, setHoveredCard] = useState<string | number | null>(null);
 
   const settings = {
@@ -194,6 +197,10 @@ const ResumeCard: React.FC<ResumeCardProps> = ({
     ],
   };
 
+  const selectedBiodata = biodataDetails.find(
+    (biodata) => biodata.modelNumber === selectedModel
+  );
+
   const renderCards = () => {
     if (isSlider) {
       return (
@@ -212,9 +219,7 @@ const ResumeCard: React.FC<ResumeCardProps> = ({
                   }}
                   onPreview={() =>
                     router.push(
-                      `/resume/${resume.modelName}?data=${encodeURIComponent(
-                        JSON.stringify(resume)
-                      )}`
+                      `/resume/${resume.modelName}`
                     )
                   }
                 />
@@ -240,9 +245,7 @@ const ResumeCard: React.FC<ResumeCardProps> = ({
             }}
             onPreview={() =>
               router.push(
-                `/resume/${resume.modelName}?data=${encodeURIComponent(
-                  JSON.stringify(resume)
-                )}`
+                `/resume/${resume.modelName}`
               )
             }
           />
@@ -251,37 +254,59 @@ const ResumeCard: React.FC<ResumeCardProps> = ({
     );
   };
 
-  // selectedResume can be used if you integrate the GetNow (popup) component later
-  // const selectedResume = resumeDetails.find(
-  //   (resume) => resume.modelNumber === selectedModel
-  // );
-
   return (
-    <Background>
-      <div className={styles.content}>
-        <Container>
-          <Heading title={title} subtitle={subtitle} />
+    <>
+      <Background>
+        <div className={styles.content}>
+          <Container>
+            <Heading title={title} subtitle={subtitle} />
 
-          {showButton && (
-            <Button onClick={() => router.push("/")} variant="secondary">
-              <ArrowBack />
-              Back
-            </Button>
-          )}
-
-          {renderCards()}
-          {isSlider && (
-            <div className={styles.resumeMore}>
-              <Button variant="primary" className={styles.cardReadmoreButton} onClick={() => router.push("/resume")}>
-                <EditDocument />
-                <span>View More</span>
-                <ArrowForward />
+            {showButton && (
+              <Button onClick={() => router.push("/")} variant="secondary">
+                <ArrowBack />
+                Back
               </Button>
-            </div>
-          )}
-        </Container>
-      </div>
-    </Background>
+            )}
+
+            {renderCards()}
+            {isSlider && (
+              <div className={styles.resumeMore}>
+                <Button
+                  variant="primary"
+                  className={styles.cardReadmoreButton}
+                  onClick={() => router.push("/resume")}
+                >
+                  <EditDocument />
+                  <span>View More</span>
+                  <ArrowForward />
+                </Button>
+              </div>
+            )}
+          </Container>
+        </div>
+      </Background>
+      <GetNow
+        isOpen={isPopupOpen}
+        heading="Request Biodata"
+        paragraph="Please fill these details."
+        buttonTitle="Save and Continue"
+        onClose={() => {
+          setIsPopupOpen(false);
+          setSelectedModel("");
+        }}
+        modelDetails={{
+          modelNumber: selectedModel,
+          language: selectedBiodata?.language ?? "English",
+          type:
+            resumeDetails.find((resume) => resume.modelNumber === selectedModel)
+              ?.type ?? "",
+          amount:
+            resumeDetails.find(
+              (resume) => resume.modelNumber === selectedModel
+            )?.discountedPrice ?? 0,
+        }}
+      />
+    </>
   );
 };
 

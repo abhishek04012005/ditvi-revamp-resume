@@ -1,0 +1,152 @@
+
+
+.blogGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.blogCard {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.blogCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(var(--primary-color-a), 0.15);
+}
+
+.blogCardImage {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.blogCardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blogCard:hover .blogCardImage img {
+    transform: scale(1.1);
+}
+
+
+
+.blogCardContent {
+    padding: 1.5rem;
+}
+
+.blogMeta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.blogMetaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.blogMetaItem span {
+    color: var(--secondary-color);
+}
+
+.blogMetaItem svg {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.blogTitle {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.blogCard:hover .blogTitle {
+    color: var(--primary-color);
+}
+
+.blogExcerpt {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+
+
+.blogReadMoreMobile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    background: none;
+    border: none;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    float: right;
+    position: absolute;
+    bottom: 1rem;
+    right: 0;
+}
+
+.blogBackButton {
+    margin-bottom: rem;
+}
+
+.blogReadMoreMobile:hover {
+    border: none;
+    transform: none;
+    box-shadow: none;
+}
+
+.blogMore {
+    padding-top: 1rem;
+    float: right;
+}
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 992px) {
+    .blogSection {
+        padding: 4rem 0;
+    }
+
+    .blogGrid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .blogCardContent {
+        padding: 1.2rem;
+    }
+
+    .blogTitle {
+        font-size: 1.2rem;
+    }
+
+
+}
