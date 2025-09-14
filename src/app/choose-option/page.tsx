@@ -1,33 +1,30 @@
-// src/app/choose-option/page.tsx
 import ChooseOption from '../../structure/chooseoption/ChooseOption';
 import { UserDetails, ModelDetails } from '../../structure/chooseoption/ChooseOption';
 
 interface PageProps {
-  searchParams: Promise<{
+  searchParams: {
     requestNumber?: string;
     userDetails?: string;
     modelDetails?: string;
-  }>;
+  };
 }
 
-export default async function ChooseOptionPage({ searchParams }: PageProps) {
-  const resolvedParams = await searchParams;
-
+export default function ChooseOptionPage({ searchParams }: PageProps) {
   let userDetails: UserDetails = { name: '' };
   let modelDetails: ModelDetails = { type: 'standard' };
 
   try {
-    if (resolvedParams.userDetails) {
-      userDetails = JSON.parse(resolvedParams.userDetails) as UserDetails;
+    if (searchParams.userDetails) {
+      userDetails = JSON.parse(searchParams.userDetails) as UserDetails;
     }
-    if (resolvedParams.modelDetails) {
-      modelDetails = JSON.parse(resolvedParams.modelDetails) as ModelDetails;
+    if (searchParams.modelDetails) {
+      modelDetails = JSON.parse(searchParams.modelDetails) as ModelDetails;
     }
   } catch (error) {
     console.error('Error parsing URL parameters:', error);
   }
 
-  const requestNumber = resolvedParams.requestNumber || '';
+  const requestNumber = searchParams.requestNumber || '';
 
   return (
     <ChooseOption
@@ -37,3 +34,6 @@ export default async function ChooseOptionPage({ searchParams }: PageProps) {
     />
   );
 }
+
+// Add this to enable static generation
+export const dynamic = 'force-static';
